@@ -91,7 +91,7 @@ app.post("/signup", async (req, res) => {
             const newUser = new User({ username, email });
             await User.register(newUser, password);
             passport.authenticate("local")(req, res, () => {
-                  res.send("User created and logged in");
+            res.redirect("/talk");
             });
       } catch (err) {
             console.log(err);
