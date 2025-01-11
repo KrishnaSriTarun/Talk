@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Upload Modal</title>
+      <link rel="stylesheet" href="/css/new.css">
+</head>
+<% layout('./layouts/boilerplate.ejs') %>
+<body>
+      <div class="modal" id="uploadModal">
+            <div class="modal-content">
+                  <input type="button" class="close" value="✖">
+                  <form action="/talk" method="get">
+                        <input type="submit" class="btn-back" value="Back">
+                  </form>
+                  <form action="/talk/uploads" method="post" enctype="multipart/form-data">
+                        <textarea name="description" placeholder="What's on your mind?" class="text-input"
+                              required></textarea>
+                        <label class="btn-action">
+                              📷 Add Image
+                              <input type="file" name="image" accept="image/*" style="display: none;"
+                                    onchange="previewFile(this, 'image-preview')">
+                        </label>
+                        <label class="btn-action">
+                              🎥 Add Video
+                              <input type="file" name="video" accept="video/*" style="display: none;"
+                                    onchange="previewFile(this, 'video-preview')">
+                        </label>
+                        <div id="preview-section">
+                              <img id="image-preview" style="max-width: 100px; display: none;">
+                              <video id="video-preview" style="max-width: 100px; display: none;" controls></video>
+                        </div>
+                        <input type="submit" class="btn-action upload" value="Upload Post">
+                  </form>
+            </div>
+      </div>
+
+      <script>
+            function previewFile(input, previewId) {
+                  const file = input.files[0];
+                  const preview = document.getElementById(previewId);
+                  if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                              preview.src = e.target.result;
+                              preview.style.display = "block";
+                        };
+                        reader.readAsDataURL(file);
+                  } else {
+                        preview.style.display = "none";
+                  }
+            }
+      </script>
+</body>
+
+</html>
