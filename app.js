@@ -19,7 +19,7 @@ const upload = require('./cloudConfig')
 const ejsMate = require("ejs-mate");
 
 // Database connection
-const dbUrl = "mongodb://127.0.0.1:27017/media";
+const dbUrl = process.env.ATLASDB_URL;
 mongoose
       .connect(dbUrl)
       .then(() => console.log("Connected to DB"))
