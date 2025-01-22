@@ -1,22 +1,24 @@
+html,
 body {
-      font-family: Arial, sans-serif;
+      height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #15202b;
-      color: #e1e8ed;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      background-color: #15202b;
+      color: #e1e8ed;
 }
 
 .profile-container {
       background-color: #192734;
       border-radius: 10px;
       padding: 20px;
-      width: 350px;
+      width: 400px;
+      max-width: 600px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
 }
 
 .profile-container img {

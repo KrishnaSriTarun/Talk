@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Upload Modal</title>
-      <link rel="stylesheet" href="/css/new.css">
-</head>
 <% layout('./layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/css/new.css">
 <body>
       <div class="modal" id="uploadModal">
             <div class="modal-content">
-                  <input type="button" class="close" value="✖">
+                  <form action="/talk" method="get">
+                        <input type="submit" class="close" value="✖">
+                  </form>
                   <form action="/talk" method="get">
                         <input type="submit" class="btn-back" value="Back">
                   </form>
@@ -36,23 +31,4 @@
                   </form>
             </div>
       </div>
-
-      <script>
-            function previewFile(input, previewId) {
-                  const file = input.files[0];
-                  const preview = document.getElementById(previewId);
-                  if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function (e) {
-                              preview.src = e.target.result;
-                              preview.style.display = "block";
-                        };
-                        reader.readAsDataURL(file);
-                  } else {
-                        preview.style.display = "none";
-                  }
-            }
-      </script>
 </body>
-
-</html>

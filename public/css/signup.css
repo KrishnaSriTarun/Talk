@@ -1,6 +1,4 @@
-/* styles.css */
 
-/* General Styles */
 body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
@@ -12,7 +10,6 @@ body {
       height: 100vh;
 }
 
-/* Container Styles */
 .container {
       width: 100%;
       max-width: 400px;
@@ -63,14 +60,14 @@ button {
       font-size: 16px;
       font-weight: bold;
       color: white;
-      background-color: #25D366; /* Green background */
+      background-color: #25D366; 
       border: none;
       border-radius: 5px;
       cursor: pointer;
 }
 
 button:hover {
-      background-color: #20ba5a; /* Darker green on hover */
+      background-color: #20ba5a; 
 }
 
 /* Responsive Styles */

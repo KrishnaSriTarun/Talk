@@ -1,64 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Search Page</title>
-      <style>
-            body {
-                  font-family: Arial, sans-serif;
-                  margin: 0;
-                  padding: 0;
-                  background-color: #15202b;
-                  color: #e1e8ed;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 100vh;
-            }
-
-            .search-container {
-                  background-color: #f8f9fa;
-                  color: #212529;
-                  border-radius: 10px;
-                  padding: 20px;
-                  width: 90%;
-                  max-width: 400px;
-                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            }
-
-            .search-bar {
-                  width: 100%;
-                  padding: 10px 15px;
-                  border: 1px solid #ccc;
-                  border-radius: 20px;
-                  margin-bottom: 20px;
-                  font-size: 16px;
-                  outline: none;
-                  box-sizing: border-box;
-            }
-
-            .recent-title {
-                  font-weight: bold;
-                  margin-bottom: 10px;
-                  font-size: 18px;
-                  color: #6c757d;
-            }
-
-            .no-recent-searches {
-                  font-size: 16px;
-                  color: #6c757d;
-            }
-      </style>
-</head>
+<% layout('./layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/css/search.css">
 
 <body>
-      <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search">
-            <div class="recent-title">Recent</div>
-            <div class="no-recent-searches">No recent searches.</div>
-      </div>
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search">
+        <div class="recent-title">Recent</div>
+        <div class="no-recent-searches">No recent searches.</div>
+    </div>
 </body>
-
-</html>
