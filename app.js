@@ -11,12 +11,15 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const path = require("path");
 const User = require("./models/user");
-const PORT = 8080;
+const flash = require("connect-flash");
 const ejsMate = require("ejs-mate");
 
-// router
-const user=require('./routes/user')
-const talk=require('./routes/talk')
+const PORT = 8080;
+
+// Routers
+const user = require('./routes/user');
+const talk = require('./routes/talk');
+
 // Database connection
 const dbUrl = process.env.ATLASDB_URL;
 mongoose
@@ -48,11 +51,12 @@ const sessionOptions = {
       saveUninitialized: false,
       cookie: {
             httpOnly: true,
-            expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+            expires: Date.now() + 1000 * 60 * 60 * 24 * 7, 
             maxAge: 1000 * 60 * 60 * 24 * 7,
       },
 };
 app.use(session(sessionOptions));
+app.use(flash());
 
 // Passport.js setup
 app.use(passport.initialize());
@@ -61,23 +65,30 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+// Middleware to make flash messages available in views
 app.use((req, res, next) => {
+      res.locals.success = req.flash("success");
+      res.locals.error = req.flash("error");
       res.locals.currUser = req.user || null;
       next();
 });
-// isLoggedIn Middleware
-// middleware
-app.use('/',user)
-app.use('/talk',talk)
+
+// Routers
+app.use('/', user);
+app.use('/talk', talk);
+
 app.get("/", (req, res) => {
       res.redirect("/talk");
 });
-// Error handler middleware (optional)
+
+// Error handler middleware
 app.use((err, req, res, next) => {
       console.error(err.stack);
-      res.status(500).send("Something went wrong!");
+      const { status = 500, message = "Something went wrong!" } = err;
+      res.status(status).render("error", { err });
 });
+
+// Starting the server
 app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
 });

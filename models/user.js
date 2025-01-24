@@ -11,10 +11,10 @@ const userSchema =new Schema(
             },
             profile:{
                   type: String,
-                  default:"https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+                  default:"https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp",
                   set: (v) =>
                         v === ""
-                        ? "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                        ? "https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp"
                         : v,
             },
             followers:[
@@ -23,6 +23,12 @@ const userSchema =new Schema(
                         ref: 'User',
                   },
             ],
+            posts:[
+                  {
+                        type: Schema.Types.ObjectId,
+                        ref: 'Post',
+                  },
+                  ],
             following:[
                   {
                         type: Schema.Types.ObjectId,

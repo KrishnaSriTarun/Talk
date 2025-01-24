@@ -7,7 +7,6 @@ const dataSchema = new Schema(
                   type: String,
                   validate: {
                         validator: function (value) {
-                              // Ensure either `image` or `video` is provided, but not both
                               return this.video ? !value : true;
                         },
                         message: 'Either image or video should be provided.',
@@ -17,7 +16,6 @@ const dataSchema = new Schema(
                   type: String,
                   validate: {
                         validator: function (value) {
-                              // Ensure either `image` or `video` is provided, but not both
                               return this.image ? !value : true;
                         },
                         message: 'Either image or video should be provided.',
@@ -31,7 +29,7 @@ const dataSchema = new Schema(
                   ref: 'User',
             },
       },
-      { timestamps: true } // Automatically adds createdAt and updatedAt fields
+      { timestamps: true } 
 );
 dataSchema.pre('validate', function (next) {
       if (!this.image && !this.video) {

@@ -6,6 +6,7 @@
             <img src="<%=currUser.profile%>" alt="Profile Picture">
             <h2><%=currUser.username%></h2>
             <div class="stats">
+                  <div> <%= (currUser.posts && currUser.posts.length) || 0 %> Posts</div>
                   <div> <%= (currUser.followers && currUser.followers.length) || 0 %> Followers</div>
                   <div> <%= (currUser.following && currUser.following.length) || 0 %> Following</div>
             </div>
