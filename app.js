@@ -13,6 +13,7 @@ const path = require("path");
 const User = require("./models/user");
 const flash = require("connect-flash");
 const ejsMate = require("ejs-mate");
+const Post = require("./models/posts");
 
 const PORT = 8080;
 
@@ -51,7 +52,7 @@ const sessionOptions = {
       saveUninitialized: false,
       cookie: {
             httpOnly: true,
-            expires: Date.now() + 1000 * 60 * 60 * 24 * 7, 
+            expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
             maxAge: 1000 * 60 * 60 * 24 * 7,
       },
 };
@@ -80,7 +81,12 @@ app.use('/talk', talk);
 app.get("/", (req, res) => {
       res.redirect("/talk");
 });
-
+// app.get("/user/:id",async (req, res) => {
+//       const { id } = req.params;
+//       const data = await User.findById(id);
+//       console.log(data);
+//       res.render("main/showUser", { data });
+// })
 // Error handler middleware
 app.use((err, req, res, next) => {
       console.error(err.stack);

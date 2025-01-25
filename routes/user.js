@@ -17,5 +17,6 @@ router.post('/login',saveRedirectUrl, passport.authenticate("local", {
 }),userRouter.login);
 
 router.get('/logout',userRouter.logout);
+router.get('/user/:id',wrapAsync(userRouter.showUsers));
 
 module.exports = router;
