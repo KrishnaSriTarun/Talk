@@ -13,7 +13,11 @@
             <div class="action-buttons">
                   <div class="btn-action"><i class="fas fa-edit"></i></div>
                   <div class="btn-action"><i class="fas fa-trash"></i></div>
-                  <div class="btn-action"><i class="fas fa-users"></i></div>
+                  <form action="/user/followers/<%=currUser._id%>" method="GET">
+                        <button class="btn-action" style="border: none;" type="submit">
+                              <i class="fas fa-users"></i>
+                        </button>
+                  </form>
                   <div class="btn-action"><i class="fas fa-share"></i></div>
                   <div class="btn-action"><i class="fas fa-envelope"></i></div>
             </div>

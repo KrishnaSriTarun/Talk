@@ -3,6 +3,7 @@ const User = require('../models/user');
 module.exports.renderIndex = async (req, res) => {
       let datas = await Post.find({});
       res.render("main/index", { datas });
+      // res.json(datas);
 }
 module.exports.renderNew = (req, res) => {
       res.render("main/new");

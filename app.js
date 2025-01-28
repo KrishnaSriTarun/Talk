@@ -16,6 +16,8 @@ const ejsMate = require("ejs-mate");
 const Post = require("./models/posts");
 
 const PORT = 8080;
+const cors = require('cors');
+app.use(cors());
 
 // Routers
 const user = require('./routes/user');
@@ -81,12 +83,6 @@ app.use('/talk', talk);
 app.get("/", (req, res) => {
       res.redirect("/talk");
 });
-// app.get("/user/:id",async (req, res) => {
-//       const { id } = req.params;
-//       const data = await User.findById(id);
-//       console.log(data);
-//       res.render("main/showUser", { data });
-// })
 // Error handler middleware
 app.use((err, req, res, next) => {
       console.error(err.stack);

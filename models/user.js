@@ -11,11 +11,11 @@ const userSchema =new Schema(
             },
             profile:{
                   type: String,
-                  default:"https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp",
-                  set: (v) =>
-                        v === ""
-                        ? "https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp"
-                        : v,
+                  // default:"https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp",
+                  // set: (v) =>
+                  //       v === ""
+                  //       ? "https://res.cloudinary.com/dvykfqu85/image/upload/v1737733131/Talk_Test/mj2vlw57rmwvxmgky1ve.webp"
+                  //       : v,
             },
             followers:[
                   {

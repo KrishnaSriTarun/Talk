@@ -44,6 +44,7 @@ body {
       outline: none;
       box-sizing: border-box;
       transition: border 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 1rem;
 }
 
 .search-bar:focus {
@@ -140,7 +141,6 @@ body {
 .search-container,
 .suggestions {
       margin: 0;
-      /* Reset any default margins */
       padding: 0;
 }
 
