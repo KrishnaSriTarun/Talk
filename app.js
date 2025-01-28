@@ -16,8 +16,8 @@ const ejsMate = require("ejs-mate");
 const Post = require("./models/posts");
 
 const PORT = 8080;
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 // Routers
 const user = require('./routes/user');
